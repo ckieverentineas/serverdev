@@ -4,8 +4,9 @@ const app = express()
 app.use(cors())
 app.get('/user', async (req, res) => {
   const posts = {
-      email: "amino@ami.no",
-      password: "2213sfs"
+      "email": "amino@ami.no",
+      "password": "2213sfs",
+      "birthday": "1999"
   }
   res.json(posts)
 })
