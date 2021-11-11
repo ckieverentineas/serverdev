@@ -1,7 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>{{got}}</p>
+    <p>{{got}}</p><hr>
+    {{name}}<hr>
+    
+    <div class="uu">{{password}}</div>
   </div>
 </template>
 
@@ -15,7 +18,9 @@ export default defineComponent({
   },
   data() {
     return {
-      got: {}
+      got: {},
+      name: "",
+      password: ""
     }
   },
   async created() {
@@ -23,6 +28,8 @@ export default defineComponent({
   const response = await fetch("http://localhost:3000/user");
   const data = await response.json();
   this.got = data;
+  this.name = data["email"]
+  this.password = data["password"]
 }
 });
 </script>
@@ -42,5 +49,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.uu {
+  color: aqua;
 }
 </style>
