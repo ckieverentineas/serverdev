@@ -2,9 +2,14 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>{{got}}</p><hr>
-    {{name}}<hr>
+    {{email}}<hr>
     
     <div class="uu">{{password}}</div>
+    <input v-model="email" placeholder="email">
+    <p>Введенный email: {{ email }}</p>
+    <input v-model="password" placeholder="password">
+    <p>Введенный email: {{ password }}</p>
+    <button v-on:click="createUser">Зарегаться</button>
   </div>
 </template>
 
@@ -19,7 +24,7 @@ export default defineComponent({
   data() {
     return {
       got: {},
-      name: "",
+      email: "",
       password: ""
     }
   },
@@ -28,9 +33,26 @@ export default defineComponent({
   const response = await fetch("http://localhost:3000/user");
   const data = await response.json();
   this.got = data;
-  this.name = data["email"]
+  this.email = data["email"]
   this.password = data["password"]
-}
+  },
+  methods: {
+    async createUser() {
+      const datas = { email: this.email,
+          password: this.password
+      };
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(datas)
+      };
+      console.log(requestOptions);
+      const response = await fetch("http://localhost:3000/user/post", requestOptions);
+      const data = await response.json();
+      console.log(data)
+      this.got = await data;
+    }
+  }
 });
 </script>
 
