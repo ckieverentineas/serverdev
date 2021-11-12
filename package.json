@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx ts-node-dev backend/index.ts && 'cd ./frontend' npm run serve",
+    "start": "npx ts-node-dev backend/index.ts",
+    "dev": "npx ts-node-dev backend/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
