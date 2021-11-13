@@ -7,7 +7,7 @@
     "init": " npm i && cd frontend && npm i",
     "start": "npx ts-node-dev backend/index.ts",
     "frontend": "cd frontend && npm run serve",
-    "api": "npx ts-node-dev backend/index.ts",
+    "api": "npx ts-node-dev index.ts",
     "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\"",
     "postinstall": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"

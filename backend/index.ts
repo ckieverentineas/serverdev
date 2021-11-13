@@ -1,23 +1,32 @@
-import express from 'express'
-import cors from 'cors'
-import bodyParser from 'body-parser'
-const app = express()
-app.use(cors())
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+
+const app = express();
+const posts = new Array();
+
+app.use(cors());
 app.use(bodyParser.json());
-const posts = new Array()
+
+
 app.get('/user', async (req, res) => {
-  res.json(posts)
-})
+
+  res.json(posts);
+});
+
 app.post('/user/post', async (req, res) => {
-  console.log(req.body)
-  const { password, email} = await req.body
-  console.log(email)
+  const { password, email} = await req.body;
   const result = {
     email,
     password
   }
-  posts.push(result)
-  console.log(posts)
-  res.json(posts)
-})
-const server = app.listen(3000)
+
+  console.log(req.body);
+  console.log(email);
+  console.log(posts);
+  
+  posts.push(result);
+  res.json(posts);
+});
+
+const server = app.listen(3000);
