@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "init": " npm i && cd frontend && npm i",
-    "start": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\"",
+    "start": "npx ts-node-dev backend/index.ts",
     "frontend": "cd frontend && npm run serve",
     "api": "npx ts-node-dev backend/index.ts",
     "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\"",
+    "postinstall": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
