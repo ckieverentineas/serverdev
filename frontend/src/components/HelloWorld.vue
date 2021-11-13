@@ -9,7 +9,8 @@
     <p>Введенный email: {{ email }}</p>
     <input v-model="password" placeholder="password">
     <p>Введенный email: {{ password }}</p>
-    <button v-on:click="createUser">Зарегаться</button>
+    <button v-on:click="createUser">Зарегаться</button><br>
+    <label>{{status}}</label>
   </div>
 </template>
 
@@ -25,7 +26,8 @@ export default defineComponent({
     return {
       got: {},
       email: "",
-      password: ""
+      password: "",
+      status: ""
     }
   },
   async created() {
@@ -50,7 +52,8 @@ export default defineComponent({
       const response = await fetch("http://localhost:3000/user/post", requestOptions);
       const data = await response.json();
       console.log(data)
-      this.got = await data;
+      this.got = await data; 
+      this.status = `Сервер получил email ${data.email} и следующий пароль ${data.password} вернув их обратно`
     }
   }
 });

@@ -17,6 +17,7 @@ app.post('/user/post', async (req, res) => {
   const { password, email} = await req.body
   console.log(email)
   const result = {
+    status: "Записано",
     email,
     password
   }
