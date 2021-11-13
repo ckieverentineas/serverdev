@@ -4,12 +4,8 @@ import bodyParser from 'body-parser'
 const app = express()
 app.use(cors())
 app.use(bodyParser.json());
+const posts = new Array()
 app.get('/user', async (req, res) => {
-  const posts = {
-      "email": "amino@ami.no",
-      "password": "2213sfs",
-      "birthday": "1999"
-  }
   res.json(posts)
 })
 app.post('/user/post', async (req, res) => {
@@ -17,10 +13,11 @@ app.post('/user/post', async (req, res) => {
   const { password, email} = await req.body
   console.log(email)
   const result = {
-    status: "Записано",
     email,
     password
   }
-  res.json(result)
+  posts.push(result)
+  console.log(posts)
+  res.json(posts)
 })
 const server = app.listen(3000)
