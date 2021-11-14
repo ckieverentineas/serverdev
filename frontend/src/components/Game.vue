@@ -138,8 +138,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-    body {
+<style>
+body {
   font-family: system-ui;
   background-image: url(https://cdn.pixabay.com/photo/2016/09/05/15/07/concrete-1646788_960_720.jpg);
   color: black;

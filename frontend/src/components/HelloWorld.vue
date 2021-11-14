@@ -1,16 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>{{got}}</p><hr>
-    {{email}}<hr>
+    <p>{{got}}</p><hr><hr>
     
-    <div class="uu">{{password}}</div>
+    <div class="uu">
     <input v-model="email" placeholder="email">
     <p>Введенный email: {{ email }}</p>
     <input v-model="password" placeholder="password">
-    <p>Введенный email: {{ password }}</p>
+    <p>Введенный пароль: {{ password }}</p>
     <button v-on:click="createUser">Зарегаться</button><br>
-    <label>{{status}}</label>
+    <label>{{status}}</label></div>
   </div>
 </template>
 
@@ -76,6 +75,15 @@ a {
   color: #42b983;
 }
 .uu {
-  color: aqua;
+  color: rgb(255, 123, 0);
 }
+</style>
+<style scoped>
+  .hello {
+  font-family: system-ui;
+  background-image: url(https://ramki-vsem.ru/fon/svetlyj-fon75.jpg);
+  color: black;
+  text-align: center;
+  display: flex;
+  }
 </style>
