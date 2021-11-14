@@ -2,6 +2,6 @@
 <pre>
 git clone https://github.com/ckieverentineas/serverdev.git
 cd ./server/
-npm run init
+npm i
 npm run dev
 </pre>
