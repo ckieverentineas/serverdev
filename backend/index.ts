@@ -29,4 +29,11 @@ app.post('/user/post', async (req, res) => {
   res.json(posts);
 });
 
+app.get('/user/clear', async (req, res) => {
+  while (posts.length) {
+    posts.pop();
+  }
+  res.json(posts);
+});
+
 const server = app.listen(3000);

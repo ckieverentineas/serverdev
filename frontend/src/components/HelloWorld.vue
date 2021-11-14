@@ -9,6 +9,7 @@
     <input v-model="password" placeholder="password">
     <p>Введенный пароль: {{ password }}</p>
     <button v-on:click="createUser">Зарегаться</button><br>
+    <button v-on:click="clearUsers">Очистить</button><br>
     <label>{{status}}</label></div>
   </div>
 </template>
@@ -53,6 +54,11 @@ export default defineComponent({
       console.log(data)
       this.got = await data; 
       this.status = `Сервер получил email ${data.email} и следующий пароль ${data.password} вернув их обратно`
+    },
+    async clearUsers() {
+      const response = await fetch("http://localhost:3000/user/clear");
+      const data = await response.json();
+      this.got = await data; 
     }
   }
 });
